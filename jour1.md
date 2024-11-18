@@ -160,7 +160,6 @@ int result = a | mask;  // résultat : 1101 (13 en décimal)
 
 1. **Mini-projet : Compteur Binaire**
    - Créez un programme qui affiche un compteur binaire de 0 à 15 (4 bits).
-     *But* : Utiliser les opérateurs binaires pour gérer le comptage.
      Vous devez utiliser la bibliothèque bitset pour récupérer le code binaire correspondant à une variable.
 
 2. **Mini-projet : Fonction de Hachage Simple**
