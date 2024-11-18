@@ -212,22 +212,22 @@ Voici un exemple en C++ pour activer ou désactiver les permissions sur un fichi
 using namespace std;
 
 int main() {
-    // Permissions en binaire : rwxr-xr-- = 111 101 100 (744)
+    // Permissions en binaire : rwxr-xr-- = 111 100 100 (744)
     int permissions = 0744;
 
-    // Masque pour ajouter l'exécution pour les autres utilisateurs : 001 000 000 (100)
-    int mask = 0100;
+    // Masque pour ajouter l'écriture pour le groupe : 000 010 000 (020)
+    int mask = 0020;
 
-    // Ajouter la permission d'exécution pour les autres utilisateurs
-    permissions = permissions | mask;  // Résultat : 0754
+    // Ajouter la permission d'écriture pour le groupe
+    permissions = permissions | mask;  // Résultat : 0764
 
     cout << "Permissions après ajout : " << oct << permissions << endl;
 
-    // Masque pour retirer la permission d'écriture pour le groupe : 000 010 000 (020)
+    // Masque pour retirer la permission d'écriture pour le proprietaire : 010 000 000 (020)
     mask = 0200;
 
     // Retirer la permission d'écriture pour le groupe
-    permissions = permissions & ~mask;  // Résultat : 0750
+    permissions = permissions & ~mask;  // Résultat : 0564
 
     cout << "Permissions après retrait : " << oct << permissions << endl;
 
