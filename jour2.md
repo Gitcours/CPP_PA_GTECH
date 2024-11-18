@@ -184,8 +184,6 @@ L'objectif de ce mini-projet est de créer un programme qui permet de convertir 
 ### 6.2. Plan de réalisation
 
 1. **Entrée de la couleur** : Demandez à l'utilisateur de saisir une couleur en format hexadécimal
-
-.
 2. **Extraction des composantes** : Utilisez des opérateurs binaires pour extraire les valeurs rouge, verte et bleue.
 3. **Conversion** : Affichez la couleur sous forme binaire, hexadécimale et décimale.
 4. **Testez avec différentes couleurs**.
