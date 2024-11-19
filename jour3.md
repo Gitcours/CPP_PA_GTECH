@@ -141,6 +141,7 @@ case WM_KEYDOWN:
 ```
 ### Linker une console à mon application
 ```cpp
+    //// WinMain
     AllocConsole();
     FILE* file;
     freopen_s(&file, "CONOUT$", "w", stdout);
@@ -149,6 +150,10 @@ case WM_KEYDOWN:
     std::wcout.clear();
     std::cout.clear();
     std::cerr.clear();
+    //// Code de mon appli
+    FreeConsole(); // avant le return de fin d'appli
+
+
 ```
 ### Exercice 2 :
 - Affichez un message dans la console (`std::wcout`) chaque fois que l'utilisateur déplace la souris.
