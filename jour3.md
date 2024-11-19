@@ -98,7 +98,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 - **`CreateWindowEx`** : Crée une instance de fenêtre.
 - **`WndProc`** : Traite les messages comme `WM_CLOSE` (fermeture) et `WM_DESTROY` (destruction de la fenêtre).
 
-### Exercice 1 (15 min) :
+### Exercice 1 :
 - Créez une fenêtre de dimensions personnalisées (400x300 pixels).
 - Changez la couleur de fond en bleu (indice : utilisez `CreateSolidBrush`).
 
