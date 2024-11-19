@@ -169,7 +169,7 @@ case WM_KEYDOWN:
 HWND hButton = CreateWindowEx(
     0, L"BUTTON", L"Appuyez ici",
     WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,
-    50, 50, 150, 50, hwnd, (HMENU)1, hInstance, NULL
+    50, 50, 150, 50, hwnd, (HMENU)1, NULL, NULL
 );
 
 case WM_COMMAND:
