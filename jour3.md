@@ -139,7 +139,17 @@ case WM_KEYDOWN:
     }
     break;
 ```
-
+### Linker une console à mon application
+```cpp
+    AllocConsole();
+    FILE* file;
+    freopen_s(&file, "CONOUT$", "w", stdout);
+    freopen_s(&file, "CONOUT$", "w", stderr);
+    freopen_s(&file, "CONIN$", "r", stdin);
+    std::wcout.clear();
+    std::cout.clear();
+    std::cerr.clear();
+```
 ### Exercice 2 :
 - Affichez un message dans la console (`std::wcout`) chaque fois que l'utilisateur déplace la souris.
 - Changez la couleur de la fenêtre à chaque pression sur une touche (R = rouge, G = vert, B = bleu).
