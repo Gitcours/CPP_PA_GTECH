@@ -117,3 +117,104 @@ int main() {
 - `circle.move` permet de déplacer le cercle de 5 pixels vers la droite à chaque image.
 
 ---
+
+## Mini Projet: Pong
+
+### Solution
+```cpp
+
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/System.hpp>
+#include <iostream>
+
+// Dimensions de la fenêtre
+const int WINDOW_WIDTH = 800;
+const int WINDOW_HEIGHT = 600;
+
+// Dimensions des raquettes
+const float PADDLE_WIDTH = 10.f;
+const float PADDLE_HEIGHT = 100.f;
+
+// Rayon de la balle
+const float BALL_RADIUS = 10.f;
+
+// Vitesse de la balle
+sf::Vector2f ballVelocity(0.4f, 0.4f);
+
+int main() {
+    // Créer la fenêtre
+    sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Pong");
+    window.setFramerateLimit(60);
+
+    // Créer les raquettes
+    sf::RectangleShape leftPaddle(sf::Vector2f(PADDLE_WIDTH, PADDLE_HEIGHT));
+    leftPaddle.setFillColor(sf::Color::White);
+    leftPaddle.setPosition(10.f, (WINDOW_HEIGHT - PADDLE_HEIGHT) / 2);
+
+    sf::RectangleShape rightPaddle(sf::Vector2f(PADDLE_WIDTH, PADDLE_HEIGHT));
+    rightPaddle.setFillColor(sf::Color::White);
+    rightPaddle.setPosition(WINDOW_WIDTH - PADDLE_WIDTH - 10.f, (WINDOW_HEIGHT - PADDLE_HEIGHT) / 2);
+
+    // Créer la balle
+    sf::CircleShape ball(BALL_RADIUS);
+    ball.setFillColor(sf::Color::White);
+    ball.setPosition((WINDOW_WIDTH - BALL_RADIUS) / 2, (WINDOW_HEIGHT - BALL_RADIUS) / 2);
+
+    // Variables pour le mouvement des raquettes
+    float paddleSpeed = 0.5f;
+
+    while (window.isOpen()) {
+        // Gérer les événements
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                window.close();
+            }
+        }
+
+        // Contrôles des raquettes
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && leftPaddle.getPosition().y > 0) {
+            leftPaddle.move(0, -paddleSpeed);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && leftPaddle.getPosition().y + PADDLE_HEIGHT < WINDOW_HEIGHT) {
+            leftPaddle.move(0, paddleSpeed);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && rightPaddle.getPosition().y > 0) {
+            rightPaddle.move(0, -paddleSpeed);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && rightPaddle.getPosition().y + PADDLE_HEIGHT < WINDOW_HEIGHT) {
+            rightPaddle.move(0, paddleSpeed);
+        }
+
+        // Mouvement de la balle
+        ball.move(ballVelocity);
+
+        // Collision avec les murs supérieur et inférieur
+        if (ball.getPosition().y <= 0 || ball.getPosition().y + BALL_RADIUS * 2 >= WINDOW_HEIGHT) {
+            ballVelocity.y = -ballVelocity.y;
+        }
+
+        // Collision avec les raquettes
+        if (ball.getGlobalBounds().intersects(leftPaddle.getGlobalBounds()) ||
+            ball.getGlobalBounds().intersects(rightPaddle.getGlobalBounds())) {
+            ballVelocity.x = -ballVelocity.x;
+        }
+
+        // Réinitialiser la balle si elle sort de l'écran
+        if (ball.getPosition().x < 0 || ball.getPosition().x > WINDOW_WIDTH) {
+            ball.setPosition((WINDOW_WIDTH - BALL_RADIUS) / 2, (WINDOW_HEIGHT - BALL_RADIUS) / 2);
+            ballVelocity.x = -ballVelocity.x; // Changer de direction
+        }
+
+        // Dessiner les éléments
+        window.clear();
+        window.draw(leftPaddle);
+        window.draw(rightPaddle);
+        window.draw(ball);
+        window.display();
+    }
+
+    return 0;
+}
+```
