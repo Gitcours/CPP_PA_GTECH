@@ -37,7 +37,7 @@ Avant de commencer, assurez-vous que SFML est correctement configuré dans votre
      ```
 
 4. **Déplacez les fichiers DLL** :
-   - Copiez les fichiers `.dll` correspondants (par exemple, `sfml-graphics-2.dll`) du dossier `bin` de SFML dans le répertoire `Debug` de votre projet.
+   - Copiez les fichiers `.dll` correspondants (par exemple, `sfml-graphics-2.dll`) du dossier `bin` de SFML dans le répertoire `Release` de votre projet.
 
 ### 2.2. Exemple simple
 
