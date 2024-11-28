@@ -4,11 +4,6 @@
 
 ## **Étape 1 : Lier Visual Studio 2022 à GitHub**
 
-### **Se connecter à GitHub** :
-1. Ouvrez Visual Studio.
-2. Cliquez sur l'onglet **Gestionnaire de connexions** (View > Git) ou allez dans le menu **Git > Gérer les connexions**.
-3. Sélectionnez **Ajouter un compte** et connectez-vous à votre compte GitHub.
-
 ### **Configurer Git globalement** :
 1. Accédez à **Outils > Options > Source Control > Git Global Settings**.
 2. Entrez votre nom et votre email :
