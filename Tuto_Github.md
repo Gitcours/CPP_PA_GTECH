@@ -18,7 +18,7 @@
 
 ### **Cloner un dépôt existant** :
 1. Allez dans **Git > Cloner un dépôt**.
-2. Entrez l’URL de votre dépôt GitHub (disponible sur GitHub via le bouton **Code > HTTPS**).
+2. Entrez l’URL de votre dépôt GitHub.
 3. Choisissez un répertoire local pour stocker le dépôt.
 4. Cliquez sur **Cloner**.
 
