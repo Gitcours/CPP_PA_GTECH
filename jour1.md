@@ -128,7 +128,7 @@ Utiliser des **masques de bits** permet de manipuler des bits individuels, par e
 
 ```cpp
 int a = 5;       // 0101 en binaire
-int mask = 1 << 2;  // 0100, masque pour activer le 3ème bit
+int mask = 1 << 3;  // 1000, masque pour activer le 4ème bit
 int result = a | mask;  // résultat : 1101 (13 en décimal)
 ```
 
